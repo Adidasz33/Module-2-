@@ -43,13 +43,13 @@ def save_csv(csvpath, qualifying_loans):
     """Saves progress of file to CSV
     """
     with open(csvpath, "w") as csvfile:
-        data = []
+        data = qualifying_loans
+        headers = ["Lender", "Max Loan", "Max LTV", "MaxDTI", "Min Credit Score", "Interest Rate"]
         csvwriter = csv.writer(csvfile)
-
-        for row in csvwriter:
-            data.append(row)
+        csvwriter.csv.writerow(headers)
+        csvwriter.writerows(data)
     return data
-#come back at the end
+        
 
 def get_applicant_info():
     """Prompt dialog to get the applicant's financial information.
